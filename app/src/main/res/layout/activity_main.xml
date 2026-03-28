@@ -29,14 +29,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/vHeaderBackground" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_marginHorizontal="33dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vHeaderBackground"
-        tools:layout="@layout/fragment_setup" />
+        app:layout_constraintTop_toBottomOf="@id/vHeaderBackground">
+
+        <include
+            android:id="@+id/includeSetup"
+            layout="@layout/fragment_setup"/>
+        <include
+            android:id="@+id/includeGuess"
+            android:visibility="gone"
+            layout="@layout/fragment_guess"
+            tools:visibility="visible"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/success"
+            style="@style/TextAppearance.AppCompat.Header1"
+            android:text="SUCCESS!"
+            android:visibility="gone"
+            android:gravity="center"
+            tools:visibility="visible"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/wrong"
+            style="@style/TextAppearance.AppCompat.Header1"
+            android:text="WRONG!"
+            android:visibility="gone"
+            android:gravity="center"
+            tools:visibility="visible"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

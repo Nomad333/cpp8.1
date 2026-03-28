@@ -11,12 +11,5 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .setReorderingAllowed(true) // Оптимизирует переходы между фрагментами
-                .replace(R.id.fragmentContainer, SetupFragment()) // Здесь указываем ваш класс
-                .commit()
-        }
     }
 }
